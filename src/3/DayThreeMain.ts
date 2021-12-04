@@ -12,9 +12,9 @@ class DayThreeMain {
       new ConsoleTextUtil().formatSolutionText(
         3,
         "Calculate Powerconsumption",
-        service.calculatePowerConsumption().toString()
-        // "Advanced Coursecalculations",
-        // service.calculateWithHorizontalPosAndDepthAndAim().toString()
+        service.calculatePowerConsumption().toString(),
+        "Calculate Life Support Rating",
+        service.calculateLifeSupportRating().toString()
       )
     );
   }
