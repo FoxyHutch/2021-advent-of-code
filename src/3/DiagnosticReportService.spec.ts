@@ -28,16 +28,3 @@ describe("DayThree Tests", () => {
   //   });
   // });
 });
-
-// describe("DayThree Tests", () => {
-//   describe("calculateWithHorizontalPosAndDepth", () => {
-//     it("should return correct calc", () => {
-//       expect(underTest.calculateWithHorizontalPosAndDepth()).toBe(150);
-//     });
-//   });
-//   describe("findDepthIncreasementsInThreeMeasurementSlidingWindow", () => {
-//     it("should return correct calc", () => {
-//       expect(underTest.calculateWithHorizontalPosAndDepthAndAim()).toBe(900);
-//     });
-//   });
-// });
