@@ -1,12 +1,10 @@
 import { ConsoleTextUtil } from "./../util/ConsoleTextUtil";
-import { FileUtil } from "../util/FileUtil";
+import { AoCUtil } from "../util/AoCUtil";
 import { SonarSweepService } from "./SonarSweepService";
 
 class DayOneMain {
   constructor() {
-    const dayOne = new SonarSweepService(
-      new FileUtil().getEntriesFromInputNamedTextFile(__dirname)
-    );
+    const dayOne = new SonarSweepService(new AoCUtil().getEntriesFromInputNamedTextFile(__dirname));
 
     console.log(
       new ConsoleTextUtil().formatSolutionText(

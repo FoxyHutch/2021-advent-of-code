@@ -1,11 +1,11 @@
 import { CourseCalculationService } from "./CourseCalculationService";
 import { ConsoleTextUtil } from "../util/ConsoleTextUtil";
-import { FileUtil } from "../util/FileUtil";
+import { AoCUtil } from "../util/AoCUtil";
 
 class DayTwoMain {
   constructor() {
     const service = new CourseCalculationService(
-      new FileUtil().getEntriesFromInputNamedTextFile(__dirname)
+      new AoCUtil().getEntriesFromInputNamedTextFile(__dirname)
     );
 
     console.log(

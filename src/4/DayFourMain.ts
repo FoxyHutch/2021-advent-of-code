@@ -1,20 +1,21 @@
-import { BingoService } from "./BingoService";
+import { BingoGame } from "./BingoGame";
 import { ConsoleTextUtil } from "../util/ConsoleTextUtil";
-import { FileUtil } from "../util/FileUtil";
+import { AoCUtil } from "../util/AoCUtil";
+import { WinnerLoser } from "./types";
 
 class DayFourMain {
   constructor() {
-    const service = new BingoService(new FileUtil().getEntriesFromInputNamedTextFile(__dirname));
+    const game = new BingoGame(new AoCUtil().getEntriesFromInputNamedTextFile(__dirname));
 
-    // console.log(
-    //   new ConsoleTextUtil().formatSolutionText(
-    //     3,
-    //     "Calculate Powerconsumption",
-    //     service.calculatePowerConsumption().toString(),
-    //     "Calculate Life Support Rating",
-    //     service.calculateLifeSupportRating().toString()
-    //   )
-    // );
+    console.log(
+      new ConsoleTextUtil().formatSolutionText(
+        4,
+        "Calculate Bingo Winningscore",
+        game.playGame(WinnerLoser.WINNER).toString(),
+        "Calculate Bingo Losingscore",
+        game.playGame(WinnerLoser.LOSER).toString()
+      )
+    );
   }
 }
 

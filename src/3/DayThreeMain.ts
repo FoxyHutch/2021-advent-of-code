@@ -1,11 +1,11 @@
 import { DiagnosticReportService } from "./DiagnosticReportService";
 import { ConsoleTextUtil } from "../util/ConsoleTextUtil";
-import { FileUtil } from "../util/FileUtil";
+import { AoCUtil } from "../util/AoCUtil";
 
 class DayThreeMain {
   constructor() {
     const service = new DiagnosticReportService(
-      new FileUtil().getEntriesFromInputNamedTextFile(__dirname)
+      new AoCUtil().getEntriesFromInputNamedTextFile(__dirname)
     );
 
     console.log(

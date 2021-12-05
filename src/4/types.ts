@@ -1,5 +1,4 @@
-export enum BinarySearchResult {
-  "ONE",
-  "ZERO",
-  "EQUALS",
+export enum WinnerLoser {
+  "WINNER",
+  "LOSER",
 }
