@@ -8,7 +8,9 @@
     "day2": "ts-node src/2/DayTwoMain.ts",
     "day3": "ts-node src/3/DayThreeMain.ts",
     "day4": "ts-node src/4/DayFourMain.ts",
-    "test": "jest"
+    "day5": "ts-node src/5/DayFiveMain.ts",
+    "test": "jest",
+    "testWatch": "jest --watch"
   },
   "author": "Kester Lotz",
   "license": "ISC",
