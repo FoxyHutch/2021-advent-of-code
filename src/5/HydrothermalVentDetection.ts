@@ -2,6 +2,8 @@ import { Point } from "./Point";
 import { Line } from "./Line";
 import { PointWithOverlapCount } from "./PointWithOverlapCount";
 
+// https://math.stackexchange.com/questions/1194565/how-to-know-if-two-points-are-diagonally-aligned
+
 export class HydrothermalVentDetection {
   DANGEROUS_VENT_COUNT = 2;
   LINE_INSTRUCTION_SEPARATOR = " -> ";
@@ -41,7 +43,7 @@ export class HydrothermalVentDetection {
   determineNumberOfDangerousPoints(): number {
     const potentieallyDangerousPoints: Array<PointWithOverlapCount> = [];
     for (const line of this.lines) {
-      const linePoints = line.getHorizontalOrVerticalPoints();
+      const linePoints = line.points;
       for (const linePoint of linePoints) {
         if (potentieallyDangerousPoints.find((p) => p.equalsPoint(linePoint))) {
           potentieallyDangerousPoints.find((p) => p.equalsPoint(linePoint))!.overlapCount++;
@@ -51,6 +53,7 @@ export class HydrothermalVentDetection {
         }
       }
     }
+    debugger;
     let overlapGreaterTwoCount = 0;
     for (const coord of potentieallyDangerousPoints) {
       if (coord.overlapCount >= 2) {

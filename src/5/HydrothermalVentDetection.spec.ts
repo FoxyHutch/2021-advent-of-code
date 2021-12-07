@@ -10,8 +10,8 @@ beforeEach(() => {
 
 describe("HydrothermalVentDetection", () => {
   describe("determineNumberOfDangerousPoints", () => {
-    it("should return 5", () => {
-      expect(underTest.determineNumberOfDangerousPoints()).toBe(5);
+    it("should return 12", () => {
+      expect(underTest.determineNumberOfDangerousPoints()).toBe(12);
     });
   });
 
@@ -19,6 +19,10 @@ describe("HydrothermalVentDetection", () => {
     it("should return Array with two elements", () => {
       const toSplit = "0,9 -> 5,9";
       expect(underTest.splitLinebuildingInstructions(toSplit).length).toBe(2);
+    });
+
+    it("should contain ten lines after initializing", () => {
+      expect(underTest.lines.length).toBe(10);
     });
 
     it("should should have 0,9 as first element", () => {
