@@ -2,10 +2,10 @@ import { DiagnosticReportService } from "./DiagnosticReportService";
 import { ConsoleTextUtil } from "../util/ConsoleTextUtil";
 import { AoCUtil } from "../util/AoCUtil";
 
-class DayThreeMain {
+class Main {
   constructor() {
     const service = new DiagnosticReportService(
-      new AoCUtil().getEntriesFromInputNamedTextFile(__dirname)
+      new AoCUtil().getEntriesAsStringsFromInputNamedTextFile(__dirname)
     );
 
     console.log(
@@ -20,4 +20,4 @@ class DayThreeMain {
   }
 }
 
-new DayThreeMain();
+new Main();

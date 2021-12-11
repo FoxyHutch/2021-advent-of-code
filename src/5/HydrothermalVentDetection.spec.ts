@@ -1,6 +1,9 @@
 import { HydrothermalVentDetection } from "./HydrothermalVentDetection";
 import { AoCUtil } from "./../util/AoCUtil";
-const testData = new AoCUtil().getEntriesFromTextFileByNameAndFolder("testData.txt", __dirname);
+const testData = new AoCUtil().getEntriesAsStringsFromTextFileByNameAndFolder(
+  "testData.txt",
+  __dirname
+);
 
 let underTest: HydrothermalVentDetection;
 

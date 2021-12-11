@@ -4,11 +4,12 @@
   "description": "",
   "main": "partOne.js",
   "scripts": {
-    "day1": "ts-node src/1/DayOneMain.ts",
-    "day2": "ts-node src/2/DayTwoMain.ts",
-    "day3": "ts-node src/3/DayThreeMain.ts",
-    "day4": "ts-node src/4/DayFourMain.ts",
-    "day5": "ts-node src/5/DayFiveMain.ts",
+    "day1": "ts-node src/1/Main.ts",
+    "day2": "ts-node src/2/Main.ts",
+    "day3": "ts-node src/3/Main.ts",
+    "day4": "ts-node src/4/Main.ts",
+    "day5": "ts-node src/5/Main.ts",
+    "day11": "ts-node src/11/Main.ts",
     "test": "jest",
     "testWatch": "jest --watch"
   },

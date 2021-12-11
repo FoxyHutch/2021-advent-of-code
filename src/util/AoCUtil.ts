@@ -2,12 +2,15 @@ import fs from "fs";
 import path from "path";
 
 export class AoCUtil {
-  getEntriesFromTextFileByNameAndFolder(filename: string, directoryPath: string): Array<string> {
+  getEntriesAsStringsFromTextFileByNameAndFolder(
+    filename: string,
+    directoryPath: string
+  ): Array<string> {
     const inputPath = path.resolve(directoryPath, filename);
     return fs.readFileSync(inputPath).toString().split("\n");
   }
 
-  getEntriesFromInputNamedTextFile(directoryPath: string): Array<string> {
+  getEntriesAsStringsFromInputNamedTextFile(directoryPath: string): Array<string> {
     const inputPath = path.resolve(directoryPath, "input.txt");
     const data = fs.readFileSync(inputPath).toString().split("\n");
 

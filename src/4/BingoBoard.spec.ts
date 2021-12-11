@@ -3,7 +3,10 @@ import { AoCUtil } from "../util/AoCUtil";
 import { BingoGame } from "./BingoGame";
 import { BingoField } from "./BingoField";
 
-const testData = new AoCUtil().getEntriesFromTextFileByNameAndFolder("testData.txt", __dirname);
+const testData = new AoCUtil().getEntriesAsStringsFromTextFileByNameAndFolder(
+  "testData.txt",
+  __dirname
+);
 
 let underTest: BingoBoard;
 

@@ -1,9 +1,9 @@
 import { ConsoleTextUtil } from "../util/ConsoleTextUtil";
 import { AoCUtil } from "../util/AoCUtil";
 import { HydrothermalVentDetection } from "./HydrothermalVentDetection";
-class DayFiveMain {
+class Main {
   constructor() {
-    const data = new AoCUtil().getEntriesFromInputNamedTextFile(__dirname);
+    const data = new AoCUtil().getEntriesAsStringsFromInputNamedTextFile(__dirname);
     const hydrothermalVentDetectionWithoutDiagonals = new HydrothermalVentDetection(data, false);
     const hydrothermalVentDetection = new HydrothermalVentDetection(data, true);
     console.log(
@@ -18,4 +18,4 @@ class DayFiveMain {
   }
 }
 
-new DayFiveMain();
+new Main();

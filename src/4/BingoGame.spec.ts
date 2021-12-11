@@ -1,7 +1,10 @@
 import { WinnerLoser } from "./types";
 import { AoCUtil } from "../util/AoCUtil";
 import { BingoGame } from "./BingoGame";
-const testData = new AoCUtil().getEntriesFromTextFileByNameAndFolder("testData.txt", __dirname);
+const testData = new AoCUtil().getEntriesAsStringsFromTextFileByNameAndFolder(
+  "testData.txt",
+  __dirname
+);
 
 let underTest: BingoGame;
 

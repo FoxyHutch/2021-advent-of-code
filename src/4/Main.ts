@@ -3,9 +3,9 @@ import { ConsoleTextUtil } from "../util/ConsoleTextUtil";
 import { AoCUtil } from "../util/AoCUtil";
 import { WinnerLoser } from "./types";
 
-class DayFourMain {
+class Main {
   constructor() {
-    const game = new BingoGame(new AoCUtil().getEntriesFromInputNamedTextFile(__dirname));
+    const game = new BingoGame(new AoCUtil().getEntriesAsStringsFromInputNamedTextFile(__dirname));
 
     console.log(
       new ConsoleTextUtil().formatSolutionText(
@@ -19,4 +19,4 @@ class DayFourMain {
   }
 }
 
-new DayFourMain();
+new Main();
