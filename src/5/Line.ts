@@ -4,16 +4,14 @@ export class Line {
   pointTwo: Point;
   points: Array<Point>;
 
-  constructor(p1: Point, p2: Point) {
+  constructor(p1: Point, p2: Point, withDiagonals: boolean = true) {
     this.pointOne = p1;
     this.pointTwo = p2;
-    this.points = this.buildLine(p1, p2);
+    this.points = this.buildLine(p1, p2, withDiagonals);
   }
 
-  buildLine(p1: Point, p2: Point): Array<Point> {
+  buildLine(p1: Point, p2: Point, withDiagonals: boolean = true): Array<Point> {
     let points: Array<Point> = [];
-    // three types:
-    // - vertical
 
     if (this.isVertical(p1, p2)) {
       points = this.buildVerticalLine(p1, p2);
@@ -22,7 +20,7 @@ export class Line {
       points = this.buildHorizontalLine(p1, p2);
     }
 
-    if (this.isDiagonal(p1, p2)) {
+    if (this.isDiagonal(p1, p2) && withDiagonals) {
       points = this.buildDiagonalLine(p1, p2);
     }
 
@@ -31,18 +29,6 @@ export class Line {
 
   buildDiagonalLine(p1: Point, p2: Point): Array<Point> {
     const points: Array<Point> = [];
-
-    const difference = Math.abs(p1.coordX - p2.coordX);
-
-    // points.push(p1);
-    // points.push(p2);
-
-    // example: 1,1  3,3 OR 1,3  3,1
-    const highestX = this.getHighestXCoord(p1, p2);
-    const lowestX = this.getLowestXCoord(p1, p2);
-
-    const highestY = this.getHighestYCoord(p1, p2);
-    const lowestY = this.getLowestYCoord(p1, p2);
 
     // 6,4 / 2,0
     if (p1.coordX < p2.coordX) {
@@ -86,27 +72,6 @@ export class Line {
         }
       }
     }
-
-    // for (let index = 1; index < difference; index++) {
-    //   if (p1.coordX < p2.coordX) {
-    //     if (p1.coordY < p2.coordY) {
-    //       // Case 1,1 3,3
-    //       points.push(new Point(p1.coordX + 1, p1.coordY + 1));
-    //     } else {
-    //       // Case 1,3  3,1
-    //       points.push(new Point(p1.coordX + 1, p1.coordY - 1));
-    //     }
-    //   } else {
-    //     if (p1.coordY < p2.coordY) {
-    //       // Case 3,1  1,3
-    //       points.push(new Point(p1.coordX - 1, p1.coordY + 1));
-    //     } else {
-    //       //  Case 3,3  1,1
-    //       points.push(new Point(p1.coordX - 1, p1.coordY - 1));
-    //     }
-    //   }
-    // }
-
     return points;
   }
 

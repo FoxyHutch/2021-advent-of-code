@@ -5,13 +5,20 @@ const testData = new AoCUtil().getEntriesFromTextFileByNameAndFolder("testData.t
 let underTest: HydrothermalVentDetection;
 
 beforeEach(() => {
-  underTest = new HydrothermalVentDetection(testData);
+  underTest = new HydrothermalVentDetection(testData, true);
 });
 
 describe("HydrothermalVentDetection", () => {
-  describe("determineNumberOfDangerousPoints", () => {
+  describe("determineNumberOfDangerousPoints with diagonals", () => {
     it("should return 12", () => {
       expect(underTest.determineNumberOfDangerousPoints()).toBe(12);
+    });
+  });
+
+  describe("determineNumberOfDangerousPoints without diagonals", () => {
+    it("should return 5", () => {
+      const underTestWithoutDiagonals = new HydrothermalVentDetection(testData, false);
+      expect(underTestWithoutDiagonals.determineNumberOfDangerousPoints()).toBe(5);
     });
   });
 

@@ -8,7 +8,7 @@ describe("Line", () => {
     it("should return true", () => {
       const p1 = new Point(1, 1);
       const p2 = new Point(1, 2);
-      underTest = new Line(p1, p2);
+      underTest = new Line(p1, p2, true);
       expect(underTest.isVertical(p1, p2)).toBe(true);
     });
 

@@ -10,12 +10,12 @@ export class HydrothermalVentDetection {
   input: Array<string>;
   lines: Array<Line>;
 
-  constructor(data: Array<string>) {
+  constructor(data: Array<string>, withDiagonals: boolean) {
     this.input = data;
-    this.lines = this.initializeLines(data);
+    this.lines = this.initializeLines(data, withDiagonals);
   }
 
-  initializeLines(input: Array<string>): Array<Line> {
+  initializeLines(input: Array<string>, withDiagonals: boolean = true): Array<Line> {
     const lines = [];
     // Example: "0,9 -> 5,9"
     for (const lineInstructionString of input) {
@@ -30,8 +30,8 @@ export class HydrothermalVentDetection {
         );
         twoPoints.push(point);
       }
-
-      lines.push(new Line(twoPoints[0], twoPoints[1]));
+      const line = new Line(twoPoints[0], twoPoints[1], withDiagonals);
+      lines.push(line);
     }
     return lines;
   }
@@ -53,7 +53,6 @@ export class HydrothermalVentDetection {
         }
       }
     }
-    debugger;
     let overlapGreaterTwoCount = 0;
     for (const coord of potentieallyDangerousPoints) {
       if (coord.overlapCount >= 2) {
