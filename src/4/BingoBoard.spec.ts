@@ -56,8 +56,6 @@ describe("DayFour Tests", () => {
     });
 
     it("should return array inside an array with with 5 elements", () => {
-      console.log(underTest.parseBoardFromStringArray(underTest.input)[0]);
-
       expect(underTest.parseBoardFromStringArray(underTest.input)[0].length).toBe(5);
     });
   });
