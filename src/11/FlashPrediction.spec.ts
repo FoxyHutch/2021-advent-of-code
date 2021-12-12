@@ -47,6 +47,12 @@ describe("FlashPrediction", () => {
     });
   });
 
+  describe("calculateAllOctopusFlashingStep", () => {
+    it("should return step 195", () => {
+      expect(underTest.calculateAllOctopusFlashingStep()).toBe(195);
+    });
+  });
+
   describe("incrementOctopusEnergylevel", () => {
     it("should return energylevel of 6 on first Octopus", () => {
       underTest.incrementOctopusEnergylevel();

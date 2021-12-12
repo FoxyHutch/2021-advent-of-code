@@ -21,42 +21,70 @@ export class FlashPrediction {
     return input;
   }
 
+  calculateAllOctopusFlashingStep(): number {
+    let stepCounter = 0;
+
+    while (!this.allOctopusFlashing()) {
+      stepCounter++;
+      this.makeStep();
+    }
+    return stepCounter;
+  }
+
+  allOctopusFlashing(): boolean {
+    let flashCount = 0;
+    const octopusCount = this.mapOfOctopuses.length * this.mapOfOctopuses[0].length;
+
+    for (const lineOfOctopus of this.mapOfOctopuses) {
+      for (const octopus of lineOfOctopus) {
+        if (octopus.didFlash) {
+          flashCount++;
+        }
+      }
+    }
+
+    return flashCount === octopusCount;
+  }
+
   calculateFlashesForStepAmount(stepAmount: number): number {
     let flashCount: number = 0;
 
     for (let index = 0; index < stepAmount; index++) {
-      this.incrementOctopusEnergylevel();
-
-      let numberOfFlashingOctopus = this.caclulateNumberOfFlashingOctopus();
-
-      while (numberOfFlashingOctopus > 0) {
-        // calculate every single Octopus
-        for (let lineIndex = 0; lineIndex < this.mapOfOctopuses.length; lineIndex++) {
-          const lineOfOctopuses = this.mapOfOctopuses[lineIndex];
-          for (let colIndex = 0; colIndex < lineOfOctopuses.length; colIndex++) {
-            const currentOcotpus = this.mapOfOctopuses[lineIndex][colIndex];
-            if (currentOcotpus.energylevel > 9 && !currentOcotpus.didFlash) {
-              const adjacentOctopus = this.findAdjacentOctopuses(colIndex, lineIndex);
-
-              for (const octopus of adjacentOctopus) {
-                octopus.energylevel++;
-              }
-
-              currentOcotpus.didFlash = true;
-              flashCount++;
-              numberOfFlashingOctopus = this.caclulateNumberOfFlashingOctopus();
-            }
-          }
-        }
-      }
-
-      this.setEnergyLevelsOnFalshedOctopus();
-      this.resetFlashesOnOctopus();
+      this.makeStep();
+      flashCount += this.calculateNumberOfOctopusDidFlash();
     }
     return flashCount;
   }
 
-  setEnergyLevelsOnFalshedOctopus() {
+  makeStep() {
+    this.setEnergyLevelsOnFlashedOctopus();
+    this.resetFlashesOnOctopus();
+
+    this.incrementOctopusEnergylevel();
+
+    let numberOfFlashingOctopus = this.caclulateNumberOfFlashingOctopus();
+
+    while (numberOfFlashingOctopus > 0) {
+      for (let lineIndex = 0; lineIndex < this.mapOfOctopuses.length; lineIndex++) {
+        const lineOfOctopuses = this.mapOfOctopuses[lineIndex];
+        for (let colIndex = 0; colIndex < lineOfOctopuses.length; colIndex++) {
+          const currentOcotpus = this.mapOfOctopuses[lineIndex][colIndex];
+          if (currentOcotpus.energylevel > 9 && !currentOcotpus.didFlash) {
+            const adjacentOctopus = this.findAdjacentOctopuses(colIndex, lineIndex);
+
+            for (const octopus of adjacentOctopus) {
+              octopus.energylevel++;
+            }
+
+            currentOcotpus.didFlash = true;
+            numberOfFlashingOctopus = this.caclulateNumberOfFlashingOctopus();
+          }
+        }
+      }
+    }
+  }
+
+  setEnergyLevelsOnFlashedOctopus() {
     for (const lineOfOctopus of this.mapOfOctopuses) {
       for (const octopus of lineOfOctopus) {
         if (octopus.didFlash) {
@@ -94,6 +122,19 @@ export class FlashPrediction {
     }
 
     return adjacentOctopus;
+  }
+
+  calculateNumberOfOctopusDidFlash(): number {
+    let numberOfFlashes = 0;
+    for (let lineIndex = 0; lineIndex < this.mapOfOctopuses.length; lineIndex++) {
+      const lineOfOctopus = this.mapOfOctopuses[lineIndex];
+      for (const octopus of lineOfOctopus) {
+        if (octopus.didFlash) {
+          numberOfFlashes++;
+        }
+      }
+    }
+    return numberOfFlashes;
   }
 
   caclulateNumberOfFlashingOctopus(): number {
