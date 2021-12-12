@@ -10,6 +10,7 @@
     "day4": "ts-node src/4/Main.ts",
     "day5": "ts-node src/5/Main.ts",
     "day11": "ts-node src/11/Main.ts",
+    "day12": "ts-node src/12/Main.ts",
     "test": "jest",
     "testWatch": "jest --watch"
   },
