@@ -4,15 +4,19 @@ import { AoCUtil } from "../util/AoCUtil";
 class Main {
   constructor() {
     const data = new AoCUtil().getEntriesAsStringsFromInputNamedTextFile(__dirname);
+    const smallestTestData = new AoCUtil().getEntriesAsStringsFromTextFileByNameAndFolder(
+      "smallestTestData.txt",
+      __dirname
+    );
+    const pathFinder = new PathFinder(data);
 
     console.log(
       new ConsoleTextUtil().formatSolutionText(
         12,
         "Calculate amount of paths",
-        "TODO"
-        // new PathFinder(data).calculateFlashesForStepAmount(100).toString()
-        // "Calculate first step, when all octopus flash the same step",
-        // new FlashPrediction(data).calculateAllOctopusFlashingStep().toString()
+        pathFinder.calculateNumberOfPaths(pathFinder.PATH_START_STRING, [], false).toString(),
+        "Calculate amount of paths with visiting small cave twice",
+        pathFinder.calculateNumberOfPaths(pathFinder.PATH_START_STRING, [], true).toString()
       )
     );
   }
