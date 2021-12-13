@@ -14,9 +14,9 @@ beforeEach(() => {
 describe("PathFinder", () => {
   describe("decodeTP", () => {
     it("should return 17", () => {
-      expect(underTest.decodeTP(underTest.transparentPaper, underTest.foldingInstructions, 1)).toBe(
-        17
-      );
+      expect(
+        underTest.decodeTP(underTest.transparentPaper, underTest.foldingInstructions, 1).length
+      ).toBe(17);
     });
 
     it("should return x=6, y=10 as first element", () => {
