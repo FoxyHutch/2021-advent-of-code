@@ -1,3 +1,3 @@
 export class SnailfishHomeworkHelper {
-  constructor(data: Array<string>) {}
+	constructor(data: Array<string>) {}
 }

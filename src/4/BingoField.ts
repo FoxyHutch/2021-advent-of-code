@@ -1,8 +1,8 @@
 export class BingoField {
-  number: number;
-  marked: boolean = false;
+	number: number;
+	marked: boolean = false;
 
-  constructor(number: number) {
-    this.number = number;
-  }
+	constructor(number: number) {
+		this.number = number;
+	}
 }

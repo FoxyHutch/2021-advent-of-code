@@ -1,5 +1,5 @@
 export enum BinarySearchResult {
-  "ONE",
-  "ZERO",
-  "EQUALS",
+	"ONE",
+	"ZERO",
+	"EQUALS",
 }
