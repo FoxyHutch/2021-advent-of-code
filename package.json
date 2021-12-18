@@ -13,22 +13,23 @@
     "day12": "ts-node src/12/Main.ts",
     "day13": "ts-node src/13/Main.ts",
     "day14": "ts-node src/14/Main.ts",
+    "day18": "ts-node src/18/Main.ts",
     "test": "jest",
     "testWatch": "jest --watch"
   },
   "author": "Kester Lotz",
   "license": "ISC",
   "devDependencies": {
-    "@babel/core": "^7.16.0",
-    "@babel/preset-env": "^7.16.4",
-    "@babel/preset-typescript": "^7.16.0",
+    "@babel/core": "^7.16.5",
+    "@babel/preset-env": "^7.16.5",
+    "@babel/preset-typescript": "^7.16.5",
     "@types/jest": "^27.0.3",
-    "@types/node": "^16.11.12",
-    "babel-jest": "^27.4.4",
+    "@types/node": "^16.11.14",
+    "babel-jest": "^27.4.5",
     "eslint-config-prettier": "^8.3.0",
-    "jest": "^27.4.4",
+    "jest": "^27.4.5",
     "prettier": "^2.5.1",
     "ts-node": "^10.4.0",
-    "typescript": "^4.5.3"
+    "typescript": "^4.5.4"
   }
 }
